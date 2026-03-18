@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #121212;
+  --color-surface: #1E1E1E;
+  --color-foreground: #FDFBF7;
+
+  --color-saffron: #F4B41A;
+  --color-saffron-light: #FAD06C;
+  --color-saffron-dark: #C78D00;
+
+  --color-cardamom: #8A9A5B;
+  --color-cardamom-light: #A4B57D;
+  --color-cardamom-dark: #6A7A44;
+
+  --font-display: "var(--font-playfair)", serif;
+  --font-sans: "var(--font-inter)", sans-serif;
+}
+
+:root {
+  --background: #121212;
+  --foreground: #FDFBF7;
+}
+
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .snap-y-mandatory {
+    scroll-snap-type: y mandatory;
+  }
+  .snap-center {
+    scroll-snap-align: center;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .glass {
+    @apply bg-surface/70 backdrop-blur-md border border-white/10;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
